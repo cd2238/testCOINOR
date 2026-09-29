@@ -4,7 +4,7 @@
     - problème de production : $\max 30 nbchaises + 40 nbtables\ s.c.\ nbchaises + 2 nbtables \leq 100, nbchaises + nbtables \leq 80$
 ![image](img/pointsAdmissibles.png)  
 3. testPyomo : problème modélisé par pyomo, utilisant Ipopt
-    - Exemple : $\min x_1+x_3+x_4 (x_1+x_2+x_3)$
+    - Exemple : $\min x_1+x_3+x_4 (x_1+x_2+x_3)\ s.c.\ 1 \leq x_i \leq 5$
 
 
 ## On construit spécifiquement une petite architecture objet python pour la comparaison en temps (Pulp/CBC) avec un autre solveur (CP-SAT d'OR-Tools)
