@@ -1,10 +1,10 @@
 ## On teste différents solveurs de COIN-OR (notebooks python)
 
 1. testPulp : problème modélisé par Pulp, utilisant CBC
-    - problème de production : $\max 30.0* nbchaises + 40.0*nbtables s.c. nbchaises + 2 nbtables \leq 100, nbchaises + nbtables \leq 80$
+    - problème de production : $ \max 30.0*nbchaises + 40.0*nbtables s.c. nbchaises + 2 nbtables \leq 100, nbchaises + nbtables \leq 80$
 ![image](img/pointsAdmissibles.png)  
 3. testPyomo : problème modélisé par pyomo, utilisant Ipopt
-    - Exemple : $\min x_1+x_3+x_4(x_1+x_2+x_3) s.c. 1\leq x_i \leq 5, x_1*x_2*x_3*x_4 \geq 25 , x_1**2 + x_2**2 + x_3**2 + x_4**2 == 40$
+    - Exemple $\min x_1+x_3+x_4(x_1+x_2+x_3) s.c. 1\leq x_i \leq 5, x_1*x_2*x_3*x_4\geq 25 , x_1**2 + x_2**2 + x_3**2 + x_4**2 == 40$
 
 
 ## On construit spécifiquement une petite architecture objet python pour la comparaison en temps (Pulp/CBC) avec un autre solveur (CP-SAT d'OR-Tools)
