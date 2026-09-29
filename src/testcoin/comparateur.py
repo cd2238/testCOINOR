@@ -88,6 +88,6 @@ class Comparateur:
             axes[1].grid(True, alpha=0.3)
 
 
-        plt.savefig("../../img/comp.png")
+        plt.savefig("img/comp.png")
         #plt.tight_layout()
-        "plt.show()
+        #plt.show()

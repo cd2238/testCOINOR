@@ -1,16 +1,27 @@
-## On teste différents solveurs de COIN-OR 
+## On teste différents solveurs de COIN-OR (notebooks python)
 
-1. testPulp : problème modélisé par Pulp, utilisant CBC et CLP
-2. testPyomo : problème modélisé par pyomo, utilisant Ipopt
+1. testPulp : problème modélisé par Pulp, utilisant CBC
+    - problème de production : $ \max 30.0*nbchaises + 40.0*nbtables s.c. nbchaises + 2 nbtables \leq 100, nbchaises + nbtables \leq 80$
+![image](img/pointsAdmissibles.png)  
+3. testPyomo : problème modélisé par pyomo, utilisant Ipopt
+    - Exemple $\min x_1+x_3+x_4(x_1+x_2+x_3) s.c. 1\leq x_i \leq 5, x_1*x_2*x_3*x_4\geq 25 , x1**2 + x2**2 + x3**2 + x4**2 == 40$
 
 
-## On construit spécifiquement une petite architecture objet pour la comparaison (Pulp/CBC)
-
-# testcoin : comparaison de solveurs COIN-OR et autres
+## On construit spécifiquement une petite architecture objet python pour la comparaison en temps (Pulp/CBC) avec un autre solveur (CP-SAT d'OR-Tools)
 
 Comparaison de plusieurs méthodes de résolution d'un problème de production
-(tables et chaises, généralisé à `n` produits) : CBC via PuLP 4, CP-SAT
-d'OR-Tools, relaxation continue et énumération exhaustive.
+(tables et chaises, généralisé à `n` produits) : 
+
+1. CBC de coin-OR via PuLP : méthode branch and cut
+2. CP-SAT d'OR-Tools (google)
+3. relaxation continue : CBC de coin-OR
+4. énumération exhaustive.
+
+
+![image](img/comp.png)  
+
+
+
 
 ## Architecture
 
@@ -105,9 +116,8 @@ testCOINOR/
 
 - Python 3.10 ou plus
 - [uv](https://docs.astral.sh/uv/)
-- L'exécutable `cbc`, non fourni par PuLP 4 :
+- L'exécutable `cbc`, 
   - Debian/Ubuntu : `sudo apt install coinor-cbc`
-  - conda : `conda install -c conda-forge coincbc`
 
 ## Installation et lancement
 
@@ -122,12 +132,6 @@ Sans point d'entrée déclaré dans `pyproject.toml` :
 uv run python -m testcoin.main
 ```
 
-Pour que `uv run testcoin` fonctionne, `pyproject.toml` doit contenir :
-
-```toml
-[project.scripts]
-testcoin = "testcoin.main:main"
-```
 
 ## Ce que fait le programme
 
